@@ -12,3 +12,5 @@ Command terminal.
 
 THIS OS USES VOLATILE STORAGE SO YOU NEED TO FIND A WAY TO STORE FILES
 ON AN EXTERNAL DEVICE OR DRIVER.
+It is best to run this on a Micro:Bit because it is already optimized for
+Micro:Bit arcade boards like the Elecfreaks Micro:Bit Retro Arcade

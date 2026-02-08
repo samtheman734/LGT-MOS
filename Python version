@@ -1,0 +1,104 @@
+import random
+import time
+
+# Simulated file storage
+file_system = []
+
+def home():
+    print("[LTG-MOS]..........[Home]")
+    print("-------------------------")
+    print("         programs        ")
+    print("-------------------------")
+    print("File Maker (Type 'B')")
+    print("File Viewer (Type 'Menu')")
+    print("Term.cmndln (Type 'A')")
+    print("                         ")
+    print("                         ")
+    print("---INFO------------------")
+    print("Terminal Commands: Sayhi,")
+    print("Randnum, Files, Help, Vn,")
+    print("Music, Count.")
+    print("> ", end='')
+
+def list_files():
+    if not file_system:
+        print("No files stored.")
+    else:
+        print("Files:")
+        for idx, f in enumerate(file_system):
+            print(f"{idx + 1}: {f['name']}")
+
+def create_file():
+    filename = input("Enter filename: ")
+    content = input("Enter file content: ")
+    file_system.append({'name': filename, 'content': content})
+    print("File saved.")
+    time.sleep(1)
+    home()
+
+def view_file():
+    filename = input("Enter filename to view: ")
+    for f in file_system:
+        if f['name'].lower() == filename.lower():
+            print(f"Content of {filename}:")
+            print(f['content'])
+            time.sleep(3)
+            home()
+            return
+    print("File not found.")
+    time.sleep(2)
+    home()
+
+def main():
+    print("Booting LTG-MOS...")
+    time.sleep(0.5)
+    print("Loading Variables...")
+    time.sleep(0.5)
+    print("Unpacking extensions...")
+    time.sleep(0.5)
+    print("Almost ready...")
+    time.sleep(0.5)
+    print("Done!")
+    time.sleep(0.5)
+    home()
+    while True:
+        command = input().strip()
+        if command.lower() == 'sayhi':
+            print("HI!!")
+            time.sleep(3)
+            home()
+        elif command.lower() == 'randnum':
+            print(random.randint(1, 10000))
+            time.sleep(3)
+            home()
+        elif command.lower() == 'files':
+            list_files()
+            time.sleep(3)
+            home()
+        elif command.lower() == 'help':
+            print("Go to Github for help.")
+            time.sleep(3)
+            home()
+        elif command.lower() == 'vn':
+            print("This is v1.0")
+            time.sleep(3)
+            home()
+        elif command.lower() == 'music':
+            print("Playing music... (not implemented)")
+            time.sleep(3)
+            home()
+        elif command.lower() == 'count':
+            print("1 2 3 4 5 6 7 8 9 10")
+            time.sleep(3)
+            home()
+        elif command.lower() == 'b':
+            create_file()
+        elif command.lower() == 'menu':
+            view_file()
+        else:
+            print("Unknown command.")
+            time.sleep(2)
+            home()
+
+if __name__ == "__main__":
+    main()
